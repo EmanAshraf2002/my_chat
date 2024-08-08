@@ -64,7 +64,7 @@ class ChatPage extends StatelessWidget{
                     ),
                   ),
                   Padding(
-                    padding:const EdgeInsets.all(10),
+                    padding:const EdgeInsets.only(top: 5,right: 8,left: 8),
                     child: TextField(
                       controller: myController,
                       onSubmitted: (data){
@@ -79,7 +79,10 @@ class ChatPage extends StatelessWidget{
                             curve: Curves.fastOutSlowIn);
                       },
                       decoration: InputDecoration(
-                        suffixIcon:const Icon(Icons.send ,color: kPrimaryColor,),
+                        suffixIcon: IconButton(icon:const Icon(Icons.send) ,color: kPrimaryColor,
+                        onPressed: () {
+
+                        },),
                         hintText:'Send Message',
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),

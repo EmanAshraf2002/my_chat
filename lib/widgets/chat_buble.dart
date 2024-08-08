@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:my_chat_app/constants.dart';
 import 'package:my_chat_app/pages/message_model.dart';
 
@@ -9,6 +10,7 @@ class ChatBuble extends StatelessWidget {
  final Message message_obj;
   @override
   Widget build(BuildContext context) {
+    String formattedDate = DateFormat('hh:mm a').format(message_obj.date);
     return Align(
       alignment: Alignment.centerLeft,
       child: Container(
@@ -22,10 +24,22 @@ class ChatBuble extends StatelessWidget {
             bottomRight: Radius.circular(32),
           ),
         ),
-        child:Text(message_obj.message,
+        child:Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(message_obj.message,
+              style:const TextStyle(
+                color: Colors.white ,
+              ) ,
+            ),
+          const SizedBox(height: 8),
+          Text(formattedDate,
+          textAlign:TextAlign.right,
           style:const TextStyle(
-            color: Colors.white ,
-          ) ,
+            fontSize: 10,
+            color: Colors.white ,)
+          ),
+          ],
         ),
       ),
     );
@@ -39,6 +53,7 @@ class ChatBubleForFriend extends StatelessWidget {
   final Message message_obj;
   @override
   Widget build(BuildContext context) {
+    String formattedDate = DateFormat('hh:mm a').format(message_obj.date);
     return Align(
       alignment: Alignment.centerRight,
       child: Container(
@@ -52,10 +67,22 @@ class ChatBubleForFriend extends StatelessWidget {
             bottomLeft: Radius.circular(32),
           ),
         ),
-        child:Text(message_obj.message,
-          style:const TextStyle(
-            color: Colors.black ,
-          ) ,
+        child:Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(message_obj.message,
+              style:const TextStyle(
+                color: Colors.black ,
+              ) ,
+            ),
+            const SizedBox(height: 8),
+            Text(formattedDate,
+                textAlign:TextAlign.right,
+                style:const TextStyle(
+                  fontSize: 10,
+                  color: Colors.black,)
+            ),
+          ],
         ),
       ),
     );
