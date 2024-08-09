@@ -19,8 +19,8 @@ class RegisterPage extends StatefulWidget{
 class _RegisterPageState extends State<RegisterPage> {
   String? email ;
   String? password ;
-
   bool isLoading=false;
+  bool passObscureText=true;
 
  GlobalKey<FormState> formKey=GlobalKey();
 
@@ -74,7 +74,14 @@ class _RegisterPageState extends State<RegisterPage> {
                       },
                       hintText: 'Enter password ',
                       labelText:'Password',
-                    passObscureText: true,
+                      suffixIcon:IconButton(icon:passObscureText?const Icon(Icons.visibility,color:Colors.white,) :
+                      const Icon(Icons.visibility_off,color:Colors.white) ,
+                       onPressed: (){
+                        setState(() {
+                          passObscureText=!passObscureText;
+                        });
+                      },),
+                    passObscureText: passObscureText,
                    ) ,
                   const SizedBox(height: 22 ,),
                   CustomButton(buttonText: 'register',

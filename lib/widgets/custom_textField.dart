@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget{
   CustomTextFormField({super.key, required this.hintText ,required this.labelText ,this.onChanged ,
-                        this.passObscureText =false });
+                  this.passObscureText =false ,this.suffixIcon  });
 
   String? hintText;
   String labelText;
   Function(String) ? onChanged ;
+  IconButton? suffixIcon;
   bool? passObscureText;
 
   @override
@@ -29,6 +30,7 @@ class CustomTextFormField extends StatelessWidget{
           borderRadius: BorderRadius.circular(8),
           borderSide:const BorderSide(color: Colors.white),
         ),
+        suffixIcon: suffixIcon,
         labelText: labelText ,
         labelStyle:const TextStyle(
           color: Colors.white ,

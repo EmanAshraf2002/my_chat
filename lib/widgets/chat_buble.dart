@@ -15,7 +15,7 @@ class ChatBuble extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: Container(
         margin:const EdgeInsets.symmetric(horizontal: 16,vertical: 8),
-        padding:const EdgeInsets.only(left: 16,right: 16,top: 32,bottom: 32),
+        padding:const EdgeInsets.only(left: 16,right: 16,top:20,bottom: 20),
         decoration:const  BoxDecoration(
           color: kPrimaryColor ,
           borderRadius: BorderRadius.only(
@@ -26,19 +26,20 @@ class ChatBuble extends StatelessWidget {
         ),
         child:Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
             Text(message_obj.message,
               style:const TextStyle(
                 color: Colors.white ,
               ) ,
             ),
-          const SizedBox(height: 8),
+          const SizedBox(height:12),
           Text(formattedDate,
-          textAlign:TextAlign.right,
-          style:const TextStyle(
-            fontSize: 10,
-            color: Colors.white ,)
-          ),
+              textAlign:TextAlign.right,
+              style:const TextStyle(
+              fontSize: 10,
+              color: Colors.white ,)
+            ),
           ],
         ),
       ),
@@ -58,7 +59,7 @@ class ChatBubleForFriend extends StatelessWidget {
       alignment: Alignment.centerRight,
       child: Container(
         margin:const EdgeInsets.symmetric(horizontal: 16,vertical: 8),
-        padding:const EdgeInsets.only(left: 16,right: 16,top: 32,bottom: 32),
+        padding:const EdgeInsets.only(left: 16,right: 16,top:20,bottom:20),
         decoration:const  BoxDecoration(
           color: friendChatColor ,
           borderRadius: BorderRadius.only(
@@ -69,6 +70,7 @@ class ChatBubleForFriend extends StatelessWidget {
         ),
         child:Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
             Text(message_obj.message,
               style:const TextStyle(
@@ -77,7 +79,6 @@ class ChatBubleForFriend extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(formattedDate,
-                textAlign:TextAlign.right,
                 style:const TextStyle(
                   fontSize: 10,
                   color: Colors.black,)

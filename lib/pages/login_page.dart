@@ -19,6 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   String? email ;
   String? password ;
   bool isLoading=false;
+  bool passObscureText=true;
 
   GlobalKey<FormState> formKey=GlobalKey();
 
@@ -70,9 +71,16 @@ class _LoginPageState extends State<LoginPage> {
                       onChanged: (data){
                        password=data;
                       },
+                      suffixIcon:IconButton(icon:passObscureText?const Icon(Icons.visibility,color:Colors.white,) :
+                      const Icon(Icons.visibility_off,color:Colors.white) ,
+                        onPressed: (){
+                        setState(() {
+                          passObscureText=!passObscureText;
+                        });
+                        },),
                       hintText: 'Enter password ',
                       labelText:'Password' ,
-                      passObscureText: true,
+                      passObscureText:passObscureText,
                   ) ,
                   const SizedBox(height: 22 ,),
                   CustomButton(buttonText: 'Login',
